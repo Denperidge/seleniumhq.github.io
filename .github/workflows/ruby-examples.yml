@@ -52,8 +52,4 @@ jobs:
           - run: bundle install
       - name: Run tests
         working-directory: ./examples/ruby
-        uses: nick-invision/retry@v2.8.2
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: bundle exec rspec
+        run: bundle exec rspec

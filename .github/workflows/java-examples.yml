@@ -50,8 +50,4 @@ jobs:
         version: latest
     - name: Run Tests
       working-directory: ./examples/java
-      uses: nick-invision/retry@v2.8.2
-      with:
-        timeout_minutes: 20
-        max_attempts: 3
-        command: mvn -B test
+      run: mvn -B test
