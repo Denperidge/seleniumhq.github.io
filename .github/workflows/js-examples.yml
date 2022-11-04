@@ -43,14 +43,13 @@ jobs:
       with:
         browser: firefox
         version: latest
+    - name: Install Requirements
+      working-directory: ./examples/javascript
+      run: npm install
     - name: Run tests
-      uses: nick-invision/retry@v2.7.1
-      env:
-        SELENIUM_BROWSER: chrome
+      working-directory: ./examples/javascript
+      uses: nick-invision/retry@v2.8.2
       with:
         timeout_minutes: 20
         max_attempts: 3
-        command: |
-          cd examples/javascript
-          npm install
-          npm test
+        command: npm test

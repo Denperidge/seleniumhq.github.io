@@ -43,12 +43,13 @@ jobs:
       with:
         browser: firefox
         version: latest
+    - name: Install Requirements
+      working-directory: ./examples/python
+      run: pip install -r requirements.txt
     - name: Run tests
-      uses: nick-invision/retry@v2.7.1
+      working-directory: ./examples/python
+      uses: nick-invision/retry@v2.8.2
       with:
         timeout_minutes: 20
         max_attempts: 3
-        command: |
-          cd examples/python
-          pip3 install -r requirements.txt
-          pytest
+        command: python -m pytest

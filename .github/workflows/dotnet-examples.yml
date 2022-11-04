@@ -48,10 +48,9 @@ jobs:
         browser: firefox
         version: latest
     - name: Run tests
-      uses: nick-invision/retry@v2.7.1
+      working-directory: ./examples/dotnet/SeleniumDocs
+      uses: nick-invision/retry@v2.8.2
       with:
         timeout_minutes: 20
         max_attempts: 3
-        command: |
-          cd examples/dotnet/SeleniumDocs
-          dotnet test
+        command: dotnet test

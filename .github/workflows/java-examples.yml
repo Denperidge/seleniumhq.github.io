@@ -49,10 +49,9 @@ jobs:
         browser: firefox
         version: latest
     - name: Run Tests
-      uses: nick-invision/retry@v2.7.1
+      working-directory: ./examples/java
+      uses: nick-invision/retry@v2.8.2
       with:
         timeout_minutes: 20
         max_attempts: 3
-        command: |
-          cd examples/java
-          mvn -B test
+        command: mvn -B test
