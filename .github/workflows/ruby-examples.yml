@@ -49,7 +49,7 @@ jobs:
           browser: firefox
           version: latest
       - name: Install Gems
-          - run: bundle install
+        run: bundle install
       - name: Run tests
         working-directory: ./examples/ruby
         run: bundle exec rspec
