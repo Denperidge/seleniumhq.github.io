@@ -43,9 +43,15 @@ jobs:
       with:
         browser: firefox
         version: latest
-    - name: Install Requirements
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+    - name: Install dependencies
       working-directory: ./examples/python
-      run: pip install -r requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Run tests
       working-directory: ./examples/python
-      run: python -m pytest
+      run: pytest
